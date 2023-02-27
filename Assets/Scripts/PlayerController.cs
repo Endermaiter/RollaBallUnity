@@ -1,17 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 1;
+    public Text gameOverText;
+    public String referenceObject;
 
     private Rigidbody rb;
 
     private float movementX;
     private float movementY;
     private float movementZ;
+
+    private int coinCount;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +40,7 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
         // mensaje para la consola del Unity
-        Debug.Log("Estoy en OnMove x: " + movementX.ToString());
+        Debug.Log("Estoy en OnMove x: " + movementX);
     }
 
     private void FixedUpdate()
@@ -51,6 +58,28 @@ public class PlayerController : MonoBehaviour
         
         dir *= Time.deltaTime;
         transform.Translate(dir * speed);
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
+        {
+            coinCount++;
+            Debug.Log("Score: " + coinCount);
+            other.gameObject.SetActive(false);
+        }
+
+        if (coinCount == 2)
+        {
+            speed = speed * 3;
+        }
+
+        if (other.gameObject.CompareTag("EndLine"))
+        {
+            gameOverText.text = "Felicidades " + referenceObject + "!!\nWINNER!!";
+            gameOverText.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
 }
