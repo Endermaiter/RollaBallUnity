@@ -9,14 +9,14 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 1;
-    public Text gameOverText;
-    public String referenceObject;
 
     private Rigidbody rb;
 
     private float movementX;
     private float movementY;
     private float movementZ;
+    private Collider ascensor1;
+    private Collider ascensor2;
 
     private int coinCount;
 
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
         // mensaje para la consola del Unity
-        Debug.Log("Estoy en OnMove x: " + movementX);
+        //Debug.Log("Estoy en OnMove x: " + movementX);
     }
 
     private void FixedUpdate()
@@ -59,26 +59,36 @@ public class PlayerController : MonoBehaviour
         dir *= Time.deltaTime;
         transform.Translate(dir * speed);
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    void Update()
     {
-        if (other.gameObject.CompareTag("PickUp"))
+        //ASCENSOR 1
+        if (ascensor1.gameObject.CompareTag("Ascensor1"))
+        {
+            transform.position = new Vector3(-86, 22, -16);
+            transform.localScale = new Vector3(2,2,2);
+        }
+        
+        //ASCENSOR 2
+        
+        if (ascensor2.gameObject.CompareTag("Ascensor2"))
+        {
+            transform.position = new Vector3(-86, 33, 16);
+            transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider coin)
+    {
+        if (coin.gameObject.CompareTag("PickUp"))
         {
             coinCount++;
             Debug.Log("Score: " + coinCount);
-            other.gameObject.SetActive(false);
-        }
-
-        if (coinCount == 2)
-        {
-            speed = speed * 3;
-        }
-
-        if (other.gameObject.CompareTag("EndLine"))
-        {
-            gameOverText.text = "Felicidades " + referenceObject + "!!\nWINNER!!";
-            gameOverText.gameObject.SetActive(true);
-            Time.timeScale = 0;
+            coin.gameObject.SetActive(false);
+            if (coinCount == 1)
+            {
+                speed = speed * 3;
+            }
         }
     }
 
