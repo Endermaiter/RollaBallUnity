@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -19,6 +20,14 @@ public class PlayerController : MonoBehaviour
     private Collider ascensor2;
 
     private int coinCount;
+    public TextMeshProUGUI coinCountText;
+    public TextMeshProUGUI winnerText;
+    
+    public TextMeshProUGUI timer;
+    private float segs;
+    
+    public String referenceObject;
+    public GameObject[] ending;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +35,9 @@ public class PlayerController : MonoBehaviour
         // instanciando el objeto que contiene este script
         // la bola
         rb = GetComponent<Rigidbody>();
+        coinCount = 0;
+        segs = 0;
+        setCoinCountText();
         Debug.Log("Estoy en Start");
     }
 
@@ -58,38 +70,75 @@ public class PlayerController : MonoBehaviour
         
         dir *= Time.deltaTime;
         transform.Translate(dir * speed);
+
+        segs = segs + 1 * Time.deltaTime;
+        timer.text = "Tiempo: " + segs.ToString("00");
     }
 
-    void Update()
+    private Boolean sem1 = true;
+    private Boolean sem2 = true;
+    
+    private void OnTriggerEnter(Collider col)
     {
-        //ASCENSOR 1
-        if (ascensor1.gameObject.CompareTag("Ascensor1"))
-        {
-            transform.position = new Vector3(-86, 22, -16);
-            transform.localScale = new Vector3(2,2,2);
-        }
-        
-        //ASCENSOR 2
-        
-        if (ascensor2.gameObject.CompareTag("Ascensor2"))
-        {
-            transform.position = new Vector3(-86, 33, 16);
-            transform.localScale = new Vector3(0.5f,0.5f,0.5f);
-        }
-    }
-
-    private void OnTriggerEnter(Collider coin)
-    {
-        if (coin.gameObject.CompareTag("PickUp"))
+        if (col.gameObject.CompareTag("PickUp"))
         {
             coinCount++;
-            Debug.Log("Score: " + coinCount);
-            coin.gameObject.SetActive(false);
+            setCoinCountText();
+            col.gameObject.SetActive(false);
             if (coinCount == 1)
             {
                 speed = speed * 3;
             }
         }
+        
+        //ASCENSOR 1
+        
+        if (col.gameObject.CompareTag("Ascensor1"))
+        {
+            if (sem1)
+            {
+                transform.position = new Vector3(-86, 22, -16);
+                transform.localScale = new Vector3(2,2,2);
+                
+                sem1 = false;
+            }
+        }
+        
+        //ASCENSOR 2
+        
+        if (col.gameObject.CompareTag("Ascensor2"))
+        {
+            if(sem2)
+            {
+                transform.position = new Vector3(-86, 33, 16);
+                transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+                sem2 = false;
+            }
+        }
+        
+        if (col.gameObject.CompareTag("EndLine"))
+        {
+            setWinnerText();
+            Time.timeScale = 0;
+        }
+        if (col.gameObject.CompareTag("Finish"))
+        {
+            col.gameObject.SetActive(false);
+            ending[1].SetActive(true);
+            ending[0].gameObject.SetActive(true);
+                
+        }
+    }
+
+    void setCoinCountText()
+    {
+        coinCountText.gameObject.SetActive(true);
+        coinCountText.text = "Monedas:" + coinCount + "/10";
+    }
+
+    void setWinnerText()
+    {
+        winnerText.text = "Felicidades " + referenceObject +", HAS GANADO";
     }
 
 }
