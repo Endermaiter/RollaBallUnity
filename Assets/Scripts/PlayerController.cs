@@ -124,12 +124,12 @@ public class PlayerController : MonoBehaviour
 
     void setCoinCountText()
     {
-        coinCountText.gameObject.SetActive(true);
         coinCountText.text = "Monedas:" + coinCount + "/10";
     }
 
     void setWinnerText()
     {
+        winnerText.gameObject.SetActive(true);
         winnerText.text = "Felicidades " + referenceObject +", HAS GANADO";
     }
 
