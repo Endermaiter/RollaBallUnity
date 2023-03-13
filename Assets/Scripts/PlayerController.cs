@@ -74,9 +74,6 @@ public class PlayerController : MonoBehaviour
         segs = segs + 1 * Time.deltaTime;
         timer.text = "Tiempo: " + segs.ToString("00");
     }
-
-    private Boolean sem1 = true;
-    private Boolean sem2 = true;
     
     private void OnTriggerEnter(Collider col)
     {
@@ -95,34 +92,29 @@ public class PlayerController : MonoBehaviour
         
         if (col.gameObject.CompareTag("Ascensor1"))
         {
-            if (sem1)
-            {
-                transform.position = new Vector3(-86, 22, -16);
-                transform.localScale = new Vector3(2,2,2);
-                
-                sem1 = false;
-            }
+            col.isTrigger = false;
+            transform.position = new Vector3(-86, 22, -16);
+            transform.localScale = new Vector3(2,2,2);
         }
         
         //ASCENSOR 2
         
         if (col.gameObject.CompareTag("Ascensor2"))
         {
-            if(sem2)
-            {
-                transform.position = new Vector3(-86, 33, 16);
-                transform.localScale = new Vector3(0.5f,0.5f,0.5f);
-                sem2 = false;
-            }
+            col.isTrigger = false;
+            transform.position = new Vector3(-86, 33, 16);
+            transform.localScale = new Vector3(0.5f,0.5f,0.5f);
         }
         
         if (col.gameObject.CompareTag("EndLine"))
         {
+            col.isTrigger = false;
             setWinnerText();
             Time.timeScale = 0;
         }
         if (col.gameObject.CompareTag("Finish"))
         {
+            col.isTrigger = false;
             col.gameObject.SetActive(false);
             ending[1].SetActive(true);
             ending[0].gameObject.SetActive(true);
