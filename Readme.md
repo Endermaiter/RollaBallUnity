@@ -4,7 +4,7 @@
 
 -------------------
 
-### Carpeta de scripts --> [Click aquí]()
+### Carpeta de scripts --> [Click aquí](https://github.com/Endermaiter/RollaBallUnity/tree/master/Assets/Scripts)
 
 ## Personalizaciones:
 
