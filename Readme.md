@@ -39,7 +39,7 @@ que estan esparcidas por el suelo. Mis personalizaciones a partir de ahí son la
 
 * ### Lvl 1: Escape the Roll
 
-    * Cuando el jugador recoge 10 monedas (en total hay 20, por si quisieramos jugar 2 personas), se le 
+    * **[Interaccion 1]:** Cuando el jugador recoge 10 monedas (en total hay 20, por si quisieramos jugar 2 personas), se le 
         **triplicará** la velocidad de movimiento al jugador, como se puede observar en el siguente gif:
 
         ![gif2](./ReadmeSources/2.gif)
@@ -57,7 +57,7 @@ que estan esparcidas por el suelo. Mis personalizaciones a partir de ahí son la
 
 * ### Lvl 2: La subida de los infiernos
 
-    * El nivel 2 consta de un parkour que nos llevara hasta la cima del árbol. 
+    * **[Interaccion 2]:** El nivel 2 consta de un parkour que nos llevara hasta la cima del árbol. 
         Para ello nos encontramos con la primera parte del nivel: El Ascensor
       Navideño, llamado así por los kilos de mas que ganas cuando pasas por él.
 
@@ -68,11 +68,31 @@ que estan esparcidas por el suelo. Mis personalizaciones a partir de ahí son la
 
       ![gif5](./ReadmeSources/5.gif)
 
-    *
-![gif6](./ReadmeSources/6.gif)
-![gif7](./ReadmeSources/7.gif)
-![gif8](./ReadmeSources/8.gif)
+    * **[Interaccion 3]:** La siguiente parte es otro ascensor, llamado Operacion Bikini, que nos
+        proporciona un proceso de adelgazamiento instantáneo, haciendo que la
+      pelota reduzca su tamaño en un 50% con respecto a su forma original.
+
+      ![gif6](./ReadmeSources/6.gif)
+
+    * Ahora que somos mas pequeños, pasar por el siguiente tramo será todo un
+        despliegue de valentía porque tendremos que superar "El Camino Intermitente"
+        por el que nos podremos colar facilmente y caer abajo de todo, obligando 
+    al jugador a empezar nuevo.
+
+      ![gif7](./ReadmeSources/7.gif)
+
+* ### Lvl Final: La búsqueda del poder 
+
+  * **[Interaccion 4]:** Por último, llegamos a la copa del árbol donde se encuentra La Cápsula 
+      de Poder, que, si la cogemos, habilitará la meta en la parte inferior del nivel.
+
+  * **[Interaccion 5]:** Cuando el jugador (o jugadores) toque la meta, saldrá un mensaje en pantalla que mostrará
+   quien ha ganado y en ese momento se detendrá el tiempo por completo para
+    que nadie pueda seguir jugando.
+  
+    ![gif8](./ReadmeSources/8.gif)
 -------------------------
-![YT](./ReadmeSources/youtubeIcon.jpg) 
+
+![YT](./ReadmeSources/youtubeIcono.png)
 ### Video completo del gameplay --> [*Click Aquí*](https://youtu.be/ahcu2l3BlGs)
 

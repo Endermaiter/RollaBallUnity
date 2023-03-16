@@ -12,17 +12,16 @@ public class PlayerController : MonoBehaviour
     public float speed = 1;
 
     private Rigidbody rb;
+    
 
     private float movementX;
     private float movementY;
     private float movementZ;
     private Collider ascensor1;
     private Collider ascensor2;
-
     private int coinCount;
     public TextMeshProUGUI coinCountText;
     public TextMeshProUGUI winnerText;
-    
     public TextMeshProUGUI timer;
     private float segs;
     
