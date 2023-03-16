@@ -4,6 +4,8 @@
 
 -------------------
 
+### Carpeta de scripts --> [Click aquí]()
+
 ## Personalizaciones:
 
 El tablero base de [Roll a Ball](https://learn.unity.com/project/roll-a-ball) nos ofrece un pequeño 
