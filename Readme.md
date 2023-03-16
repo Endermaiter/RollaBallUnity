@@ -72,6 +72,7 @@ que estan esparcidas por el suelo. Mis personalizaciones a partir de ahí son la
 ![gif6](./ReadmeSources/6.gif)
 ![gif7](./ReadmeSources/7.gif)
 ![gif8](./ReadmeSources/8.gif)
-
+-------------------------
+![YT](./ReadmeSources/youtubeIcon.jpg) 
 ### Video completo del gameplay --> [*Click Aquí*](https://youtu.be/ahcu2l3BlGs)
 
