@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
             coinCount++;
             setCoinCountText();
             col.gameObject.SetActive(false);
-            if (coinCount == 1)
+            if (coinCount == 10)
             {
                 speed = speed * 3;
             }
